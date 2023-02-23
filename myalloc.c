@@ -47,7 +47,7 @@ void *myalloc(int size) {
 
     struct block *current_node = head;
     while (current_node != NULL) {
-        if (current_node->size >= padded_node_size && current_node->in_use != 1) {
+        if (current_node->size >= padded_node_size && !current_node->in_use) {
             if (current_node->size >= required_space) {
                 split_space(current_node, padded_node_size);
             }
